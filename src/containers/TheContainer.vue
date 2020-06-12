@@ -5,11 +5,11 @@
       <TheHeader/>
       <div class="c-body">
         <main class="c-main">
-          <CContainer fluid>
+          <!--<CContainer fluid>-->
             <transition name="fade">
               <router-view></router-view>
             </transition>
-          </CContainer>
+          <!--</CContainer>-->
         </main>
       </div>
       <TheFooter/>

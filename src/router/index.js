@@ -6,6 +6,7 @@ const TheContainer = () => import('@/containers/TheContainer')
 
 // Views
 const Dashboard = () => import('@/views/Dashboard')
+const EmbeddedService = () => import('@/views/EmbeddedService')
 
 const Colors = () => import('@/views/theme/Colors')
 const Typography = () => import('@/views/theme/Typography')
@@ -78,6 +79,11 @@ function configRoutes () {
           path: 'dashboard',
           name: 'Dashboard',
           component: Dashboard
+        },
+        {
+          path: 'service',
+          name: 'Embedded Service',
+          component: EmbeddedService
         },
         {
           path: 'theme',

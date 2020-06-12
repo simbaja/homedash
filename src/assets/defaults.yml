@@ -1,0 +1,11 @@
+---
+# Default configuration
+
+title: "Dashboard"
+subtitle: "Homedash"
+
+header: true
+footer: true
+
+links: []
+services: []
