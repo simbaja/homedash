@@ -9,20 +9,15 @@ const merge = require("lodash.merge");
 import defaultConfig from "./assets/defaults.yml";
 
 export default {
-  name: 'App', 
-  data: function() {
-    return {
-      config: null
-    }
-  },
+  name: 'App',
   created: async function () {
     try {
       const defaults = jsyaml.load(defaultConfig);
       let config = await this.getConfig();
-
-      this.config = merge(defaults, config);
-      //this.services = this.config.services;
-      document.title = `${this.config.title} | ${this.config.subtitle}`;
+      
+      this.$store.commit('set', ['config', merge(defaults, config)]);
+      this.$store.commit('set', ['services', this.$store.state.config.services]);
+      document.title = `${this.$store.state.config.title} | ${this.$store.state.config.subtitle}`;
     } catch (error) {
       //TODO: handle exception
     }
