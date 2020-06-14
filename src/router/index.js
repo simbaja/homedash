@@ -5,7 +5,7 @@ import Router from 'vue-router'
 const TheContainer = () => import('@/containers/TheContainer')
 
 // Views
-const Dashboard = () => import('@/views/Dashboard')
+const Services = () => import('@/views/Services')
 const EmbeddedService = () => import('@/views/EmbeddedService')
 
 const Colors = () => import('@/views/theme/Colors')
@@ -71,17 +71,17 @@ function configRoutes () {
   return [
     {
       path: '/',
-      redirect: '/dashboard',
+      redirect: '/services',
       name: 'Home',
       component: TheContainer,
       children: [
         {
-          path: 'dashboard',
-          name: 'Dashboard',
-          component: Dashboard
+          path: 'services',
+          name: 'Services',
+          component: Services
         },
         {
-          path: 'service',
+          path: 'service/:name',
           name: 'Embedded Service',
           component: EmbeddedService
         },

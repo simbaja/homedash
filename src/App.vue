@@ -10,28 +10,24 @@ import defaultConfig from "./assets/defaults.yml";
 
 export default {
   name: 'App',
-  created: async function () {
-    try {
-      const defaults = jsyaml.load(defaultConfig);
-      let config = await this.getConfig();
-      
-      this.$store.commit('set', ['config', merge(defaults, config)]);
-      this.$store.commit('set', ['services', this.$store.state.config.services]);
-      document.title = `${this.$store.state.config.title} | ${this.$store.state.config.subtitle}`;
-    } catch (error) {
-      //TODO: handle exception
-    }
+  created: function () {
+    this.$store.dispatch('fetchConfig')
+  },
+  mounted: function () {
+    this.setTitle(this.$route.name)
+  },
+  watch: {
+    '$route' (to, from) {
+      this.setTitle(to.name)
+    },
+    '$store.state.config' (to, from) {
+      this.setTitle(this.$route.name)
+    }, 
+    immediate: true
   },
   methods: {
-    getConfig: function () {
-      return fetch("/config.yml").then(function (response) {
-        if (response.status != 200) {
-          return;
-        }
-        return response.text().then(function (body) {
-          return jsyaml.load(body);
-        });
-      });
+    setTitle: function(t) {
+      document.title = `${this.$store.getters.baseTitle} - ${t??""}`
     }
   }
 }
