@@ -38,11 +38,6 @@ const ButtonGroups = () => import('@/views/buttons/ButtonGroups')
 const Dropdowns = () => import('@/views/buttons/Dropdowns')
 const BrandButtons = () => import('@/views/buttons/BrandButtons')
 
-// Views - Icons
-const CoreUIIcons = () => import('@/views/icons/CoreUIIcons')
-const Brands = () => import('@/views/icons/Brands')
-const Flags = () => import('@/views/icons/Flags')
-
 // Views - Notifications
 const Alerts = () => import('@/views/notifications/Alerts')
 const Badges = () => import('@/views/notifications/Badges')
@@ -258,31 +253,6 @@ function configRoutes () {
               path: 'brand-buttons',
               name: 'Brand Buttons',
               component: BrandButtons
-            }
-          ]
-        },
-        {
-          path: 'icons',
-          redirect: '/icons/coreui-icons',
-          name: 'CoreUI Icons',
-          component: {
-            render (c) { return c('router-view') }
-          },
-          children: [
-            {
-              path: 'coreui-icons',
-              name: 'Icons library',
-              component: CoreUIIcons
-            },
-            {
-              path: 'brands',
-              name: 'Brands',
-              component: Brands
-            },
-            {
-              path: 'flags',
-              name: 'Flags',
-              component: Flags
             }
           ]
         },

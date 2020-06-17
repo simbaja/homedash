@@ -1,1 +1,8 @@
 // Here you can add other styles
+.group-header { display: flex; align-items: center }
+.group-header i.c-icon-custom-size { width: 32px !important; height: 32px !important; font-size: 32px !important; }
+.group-header img.c-icon-custom-size { width: 32px !important; height: 32px !important; }
+.group-header > .h4 { margin-bottom: 0px; margin-left: 10px }
+.service-item .p-4 { padding: 1rem !important }
+.service-item i.c-icon-custom-size { width: 36px !important; height: 36px !important; font-size: 36px !important; }
+.service-item img.c-icon-custom-size { width: 36px !important; height: 36px !important; }
