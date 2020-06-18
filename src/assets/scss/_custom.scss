@@ -6,3 +6,41 @@
 .service-item .p-4 { padding: 1rem !important }
 .service-item i.c-icon-custom-size { width: 36px !important; height: 36px !important; font-size: 36px !important; }
 .service-item img.c-icon-custom-size { width: 36px !important; height: 36px !important; }
+
+
+.tag {
+  /*color: var(--primary);
+  background-color: var(--primary);*/
+  position: absolute;
+  top: 1rem;
+  right: -0.2rem;
+  width: 3px;
+  overflow: hidden;
+  transition: all 0.2s ease-out;
+  padding: 0;
+
+  align-items: center;
+  border-radius: 4px;
+  display: inline-flex;
+  font-size: .75rem;
+  height: 2em;
+  justify-content: center;
+  line-height: 1.5;
+  white-space: nowrap;
+
+  .tag-text {
+    display: none;
+  }
+}
+
+.service-item:hover {
+  .tag {
+    width: auto;
+    color: #ffffff;
+    padding: 0 0.75em;
+
+    .tag-text {
+      display: block;
+    }
+  }
+}
