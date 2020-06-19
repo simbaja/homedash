@@ -41,7 +41,8 @@ function configRoutes () {
         {
           path: 'service/:name',
           name: 'Embedded Service',
-          component: EmbeddedService
+          component: EmbeddedService,
+          props: true
         },
         {
           path: 'users',
