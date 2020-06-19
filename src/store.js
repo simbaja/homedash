@@ -61,6 +61,11 @@ const getters = {
     if(state.config == null)
       return "";
     return `${state.config.title} | ${state.config.subtitle}`;
+  },
+  footerText(state) {
+    if(state.config == null)
+      return "";
+    return state.config.footer ?? false;
   }
 }
 

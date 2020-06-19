@@ -12,7 +12,7 @@
           <!--</CContainer>-->
         </main>
       </div>
-      <TheFooter/>
+      <TheFooter v-if="footerText" :footerText="footerText"/>
     </CWrapper>
   </div>
 </template>
@@ -28,6 +28,11 @@ export default {
     TheSidebar,
     TheHeader,
     TheFooter
+  },
+  computed: {
+    footerText() {
+      return this.$store.getters.footerText;
+    }
   }
 }
 </script>
