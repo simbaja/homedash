@@ -14,21 +14,7 @@
       <CIcon name="logo" height="48" alt="Logo"/>
     </CHeaderBrand>
     <CHeaderNav class="d-md-down-none mr-auto">
-      <CHeaderNavItem class="px-3">
-        <CHeaderNavLink to="/dashboard">
-          Dashboard
-        </CHeaderNavLink>
-      </CHeaderNavItem>
-      <CHeaderNavItem class="px-3">
-        <CHeaderNavLink to="/users" exact>
-          Users
-        </CHeaderNavLink>
-      </CHeaderNavItem>
-      <CHeaderNavItem class="px-3">
-        <CHeaderNavLink>
-          Settings
-        </CHeaderNavLink>
-      </CHeaderNavItem>
+      <CRenderFunction flat :content-to-render="this.navItems"/>
     </CHeaderNav>
     <CHeaderNav class="mr-4">
       <CHeaderNavItem class="d-md-down-none mx-2">
@@ -61,6 +47,46 @@ export default {
   name: 'TheHeader',
   components: {
     TheHeaderDropdownAccnt
-  }
+  },
+  computed: {
+    links() {
+      return this.$store.getters.links;
+    },
+    navItems() {
+      return this.generateNavItems();
+    }
+  },
+  methods: {
+    generateNavItems: function() {
+      var root = [];
+
+      //add the nav bar
+      var bar = { 
+        _name: "CHeaderNav",
+        class: "d-md-down-none mr-auto",
+        _children: []
+      }
+      root.push(bar);
+
+      //if we don't have the links, nothing to add
+      if(this.links != null) {
+        //loop over the links and add them
+        this.links.forEach(link => {
+          bar._children.push(this.createNavItem(link));     
+        });
+      }
+
+      console.info(root);
+      return root;
+
+    },
+    createNavItem: function(l) {
+      return {
+        _name: "CHeaderLink",
+        link: l,
+        _children: []
+      }
+    }
+  }  
 }
 </script>

@@ -17,11 +17,13 @@ import CServiceIcon from './components/CServiceIcon';
 import CServiceGroup from './components/CServiceGroup';
 import CServiceItem from './components/CServiceItem';
 import CSidebarServiceNavItem from './components/CSidebarServiceNavItem';
+import CHeaderLink from './components/CHeaderLink';
 
 Vue.component('CServiceIcon', CServiceIcon);
 Vue.component('CServiceGroup', CServiceGroup);
 Vue.component('CServiceItem', CServiceItem);
 Vue.component('CSidebarServiceNavItem', CSidebarServiceNavItem);
+Vue.component('CHeaderLink', CHeaderLink);
 
 new Vue({
   el: '#app',

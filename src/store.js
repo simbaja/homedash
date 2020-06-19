@@ -57,6 +57,9 @@ const getters = {
   services(state) {
     return state.config != null ? state.config.services : null;
   },
+  links(state) {
+    return state.config != null ? state.config.links : null;
+  },
   baseTitle(state) {
     if(state.config == null)
       return "";
