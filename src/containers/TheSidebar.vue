@@ -86,7 +86,7 @@ export default {
     },
     createNavItem: function(s) {
       return {
-            _name: "CSidebarNavItem",
+            _name: "CSidebarServiceNavItem",
             name: s.name,
             ...(s.target === "embed") && { to: "/Service/" + s.name },
             ...(s.target !== "embed") && { href: s.url, target: s.target === "new" ? "_blank" : "_self" },

@@ -2,8 +2,8 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 Vue.use(Vuex)
 
-const jsyaml = require("js-yaml");
-const merge = require("lodash.merge");
+import jsyaml from "js-yaml";
+import merge from "lodash.merge";
 import defaultConfig from "./assets/defaults.yml";
 
 async function loadConfig () {

@@ -22,11 +22,14 @@
 </style>
 
 <script>
+import { isString, isArray } from 'lodash'
+
 export default {
   name: 'CServiceIcon',
   props: {
     src: String,
     customClasses: [String, Array, Object],
+    additionalClasses: [String, Array],
     title: String,
     width: String,
     height: String
@@ -40,6 +43,11 @@ export default {
 
       if(!this.isImgSrc)
         classNames.push(this.src);
+
+      if(this.additionalClasses && isString(this.additionalClasses))
+        classNames.push(this.additionalClasses);
+      if(this.additionalClasses && isArray(this.additionalClasses))
+        classNames.concat(this.additionalClasses);
 
       return this.customClasses || classNames;
     }

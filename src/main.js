@@ -16,10 +16,12 @@ Vue.prototype.$log = console.log.bind(console)
 import CServiceIcon from './components/CServiceIcon';
 import CServiceGroup from './components/CServiceGroup';
 import CServiceItem from './components/CServiceItem';
+import CSidebarServiceNavItem from './components/CSidebarServiceNavItem';
 
 Vue.component('CServiceIcon', CServiceIcon);
 Vue.component('CServiceGroup', CServiceGroup);
 Vue.component('CServiceItem', CServiceItem);
+Vue.component('CSidebarServiceNavItem', CSidebarServiceNavItem);
 
 new Vue({
   el: '#app',
