@@ -16,7 +16,7 @@
     <CHeaderNav class="d-md-down-none mr-auto">
       <CRenderFunction flat :content-to-render="this.navItems"/>
     </CHeaderNav>
-    <CHeaderNav class="mr-4">
+    <CHeaderNav class="mr-4" v-if="usingAuthentication">
       <TheHeaderDropdownAccnt/>
     </CHeaderNav>
   </CHeader>
@@ -33,6 +33,9 @@ export default {
   computed: {
     links() {
       return this.$store.getters.links;
+    },
+    usingAuthentication() {
+      return this.$store.getters.usingAuthentication;
     },
     navItems() {
       return this.generateNavItems();

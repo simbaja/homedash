@@ -3,6 +3,7 @@ import Vue from 'vue'
 import App from './App'
 import router from './router'
 import CoreuiVue from '@coreui/vue'
+import VueKeyCloak from '@dsb-norge/vue-keycloak-js'
 import { iconsSet as icons } from './assets/icons/icons.js'
 import store from './store'
 
@@ -26,6 +27,22 @@ Vue.component('CSidebarServiceNavItem', CSidebarServiceNavItem);
 Vue.component('CHeaderLink', CHeaderLink);
 
 function start() {
+  var authConfig = store.getters.authenticationConfig;
+  if(authConfig == null)
+    startVue();
+  else
+  {
+    Vue.use(VueKeyCloak, {
+      config: authConfig,
+      onReady: kc => { // eslint-disable-line no-unused-vars
+        startVue();
+      }
+    });
+  }
+}
+
+function startVue()
+{
   new Vue({
     el: '#app',
     router,

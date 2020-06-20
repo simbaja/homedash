@@ -69,6 +69,19 @@ const getters = {
     if(state.config == null)
       return "";
     return state.config.footer ?? false;
+  },
+  usingAuthentication(state) {
+    return state.config.keycloakAuthenticate ?? false;
+  },
+  authenticationConfig(state) {
+    if(state.config == null || !state.config.keycloakAuthenticate)
+      return null;
+    
+    return {
+      realm: state.config.keycloakRealm,
+      url: state.config.keycloakUrl,
+      clientId: state.config.keycloakClientId
+    }
   }
 }
 
