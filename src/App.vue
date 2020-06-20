@@ -3,16 +3,10 @@
 </template>
 
 <script>
-const jsyaml = require("js-yaml");
-const merge = require("lodash.merge");
-
 import defaultConfig from "./assets/defaults.yml";
 
 export default {
   name: 'App',
-  created: function () {
-    this.$store.dispatch('fetchConfig')
-  },
   mounted: function () {
     this.setTitle(this.$route)
   },

@@ -25,13 +25,23 @@ Vue.component('CServiceItem', CServiceItem);
 Vue.component('CSidebarServiceNavItem', CSidebarServiceNavItem);
 Vue.component('CHeaderLink', CHeaderLink);
 
-new Vue({
-  el: '#app',
-  router,
-  store,
-  icons,
-  template: '<App/>',
-  components: {
-    App
-  }
-})
+function start() {
+  new Vue({
+    el: '#app',
+    router,
+    store,
+    icons,
+    template: '<App/>',
+    components: {
+      App
+    }
+  });
+}
+
+store.dispatch('fetchConfig')
+  .then((response) => { 
+    start();
+  })
+  .catch((error) => {
+    alert('Could not load config', error);
+  });
