@@ -14,20 +14,24 @@ export default {
     this.$store.dispatch('fetchConfig')
   },
   mounted: function () {
-    this.setTitle(this.$route.name)
+    this.setTitle(this.$route)
   },
   watch: {
     '$route' (to, from) {
-      this.setTitle(to.name)
+      this.setTitle(to)
     },
     '$store.state.config' (to, from) {
-      this.setTitle(this.$route.name)
+      this.setTitle(this.$route)
     }, 
     immediate: true
   },
   methods: {
     setTitle: function(t) {
-      document.title = `${this.$store.getters.baseTitle} - ${t??""}`
+      var pageTitle = t.name??"";
+      if(t.name == 'Embedded Service')
+        pageTitle = t.params.name;
+
+      document.title = `${this.$store.getters.baseTitle} - ${pageTitle}`
     }
   }
 }
