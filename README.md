@@ -4,7 +4,7 @@
 
 A simple admin-page focused Home Dashboard to keep services organized using a configuration file.  Inspired by [Homer](https://github.com/bastienwirtz/homer).
 
-![screenshot](https://raw.github.com/simbaja/homedash/master/docs/screenshot.png)
+![screenshot](docs/screenshot.png)
 
 ### Demo
 
