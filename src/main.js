@@ -60,6 +60,11 @@ function startVue()
   });
 }
 
+//set the global error handler
+window.onerror = function(message, source, lineno, colno, error) {
+  console.log('Exception: ', error)
+}
+
 //store the router so we have access to it in the store
 store.commit('set', ['router', Vue.observable(router)]);
 

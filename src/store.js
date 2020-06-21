@@ -9,7 +9,7 @@ import defaultConfig from "./assets/defaults.yml";
 async function loadConfig () {
   return fetch("/config.yml").then(function (response) {
     if (response.status != 200) {
-      return;
+      return { };
     }
     return response.text().then(function (body) {
       return jsyaml.load(body);
@@ -46,7 +46,7 @@ const actions = {
       
       commit('set', ['config', merge(defaults, config)]);
     } catch (error) {
-      //TODO: handle exception
+      console.error("There was an error fetching/merging config.", error);
     }
   }
 }
