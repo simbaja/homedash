@@ -1,0 +1,62 @@
+---
+title: "Dashboard"
+subtitle: "Homedash"
+
+# Keycloak settings
+keycloakAuthenticate: false
+
+# Note: icons will be interpreted as a library code if it doesn't end with "png", "jpg", or "gif".
+
+# Optional navbar
+# links: []
+#   name: the name of the link (will be displayed)
+#   icon: the icon to display [optional]
+#   url: the link url [required]
+#   target:
+#     new: opens a new window
+#     self: replaces the dashboard
+links:
+  - name: "Contribute"
+    icon: "cib-github"
+    url: "https://github.com/simbaja/homedash"
+    target: "new"
+  - name: "Wiki"
+    icon: "cib-wikipedia"
+    url: "https://www.wikipedia.org/"
+
+# Services
+# First level array represent a group
+# group keys:
+#   name: the name of the group [required]
+#   icon: the icon of the group displayed on the home screen [optional]
+#   items: the items under the group
+# item keys:
+#   name: the name of the service [unique key, required]
+#   icon: the sidebar icon (will default to logo if not separately specified) [optional]
+#   subtitle: the description of the item (appears on the home screen) [optional]
+#   backgroundColor: the background color (defaults to secondary) [optional]
+#   badge: a label for the item [optional]
+#   badgeColor: the color of the badge (defaults to primary) [optional]
+#   url: the destination
+#   target:
+#     embed: embed within the dashboard container window (only use if the service allows, and is responsive)
+#     new: opens a new window
+#     self: replaces the dashboard
+# Leave only a "items" key if not using group (group name, icon & tagstyle are optional, section separation will not be displayed).
+services:
+  - name: "Applications"
+    icon: "cil-cloud"
+    items:
+      - name: "Awesome app"
+        icon: "cib-grafana"
+        subtitle: "Bookmark example"
+        badge: "app"
+        url: "https://bing.com"
+        target: "embed"
+      - name: "Another one"
+        icon: "cib-proxmox"
+        subtitle: "Another application"
+        backgroundColor: "warning"
+        badge: "app"
+        badgeColor: "info"
+        url: "https://www.google.com"
