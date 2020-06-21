@@ -11,10 +11,7 @@ const EmbeddedService = () => import('@/views/EmbeddedService')
 // Views - Pages
 const Page404 = () => import('@/views/pages/Page404')
 const Page500 = () => import('@/views/pages/Page500')
-
-// Users
-const Users = () => import('@/views/users/Users')
-const User = () => import('@/views/users/User')
+const PageSignedOut = () => import('@/views/pages/PageSignedOut')
 
 Vue.use(Router)
 
@@ -43,32 +40,6 @@ function configRoutes () {
           name: 'Embedded Service',
           component: EmbeddedService,
           props: true
-        },
-        {
-          path: 'users',
-          meta: {
-            label: 'Users'
-          },
-          component: {
-            render(c) {
-              return c('router-view')
-            }
-          },
-          children: [
-            {
-              path: '',
-              name: 'Users',
-              component: Users
-            },
-            {
-              path: ':id',
-              meta: {
-                label: 'User Details'
-              },
-              name: 'User',
-              component: User
-            }
-          ]
         }
       ]
     },
@@ -89,6 +60,11 @@ function configRoutes () {
           path: '500',
           name: 'Page500',
           component: Page500
+        },
+        {
+          path: 'SignedOut',
+          name: 'PageSignedOut',
+          component: PageSignedOut
         }
       ]
     }

@@ -7,15 +7,6 @@
           <h4 class="pt-3">Houston, we have a problem!</h4>
           <p class="text-muted">The page you are looking for is temporarily unavailable.</p>
         </div>
-        <CInput
-          class="mb-3"
-          placeholder="What are you looking for?"
-        >
-          <template #prepend-content><CIcon name="cil-magnifying-glass"/></template>
-          <template #append>
-            <CButton color="info">Search</CButton>
-          </template>
-        </CInput>
       </CCol>
     </CRow>
   </CContainer>
