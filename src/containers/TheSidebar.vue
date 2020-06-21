@@ -8,17 +8,17 @@
     <CSidebarBrand class="d-md-down-none" to="/">
       <CIcon 
         class="c-sidebar-brand-full" 
-        name="logo" 
+        :use="logoWideSrc" 
         size="custom-size" 
         :height="35" 
-        viewBox="0 0 556 134"
+        :viewBox="logoWideBox"
       />
       <CIcon 
         class="c-sidebar-brand-minimized" 
-        name="logo" 
+        :use="logoSrc" 
         size="custom-size" 
         :height="35" 
-        viewBox="0 0 110 134"
+        :viewBox="logoBox"
       />
     </CSidebarBrand>
 
@@ -46,6 +46,18 @@ export default {
     },
     navItems () {
       return this.generateNavItems()
+    },
+    logoWideSrc() {
+      return this.$store.state.config.logoWideSrc
+    },
+    logoWideBox() {
+      return this.$store.state.config.logoWideBox
+    },
+    logoSrc() {
+      return this.$store.state.config.logoSrc
+    },
+    logoBox() {
+      return this.$store.state.config.logoBox
     }
   }, methods: {
     generateNavItems: function() {

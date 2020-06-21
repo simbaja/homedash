@@ -4,7 +4,11 @@
 title: "Dashboard"
 subtitle: "Homedash"
 
-header: true
+logoWideSrc: "logo-wide.svg#logo-wide"
+logoWideBox: "0 0 122 24"
+logoSrc: "logo-wide.svg#logo-wide"
+logoBox: "0 0 24 24"
+
 footer: '<div>Homedash by simbaja / Fork me on <a href="https://github.com/simbaja/homedash" target="_blank">Github</a></div><div class="ml-auto">Powered by <a href="https://coreui.io/" target="_blank">Core UI</a> and <a href="https://vuejs.org/" target="_blank">vuejs</a></div>'
 
 badgeColor: primary

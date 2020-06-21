@@ -11,7 +11,7 @@
       @click="$store.commit('toggleSidebarDesktop')"
     />
     <CHeaderBrand class="mx-auto d-lg-none" to="/">
-      <CIcon name="logo" height="48" alt="Logo"/>
+      <CIcon :use="logoWideSrc" :viewBox="logoWideBox" height="48" alt="Logo"/>
     </CHeaderBrand>
     <CHeaderNav class="d-md-down-none mr-auto">
       <CRenderFunction flat :content-to-render="this.navItems"/>
@@ -33,6 +33,12 @@ export default {
   computed: {
     links() {
       return this.$store.getters.links;
+    },
+    logoWideSrc() {
+      return this.$store.state.config.logoWideSrc
+    },
+    logoWideBox() {
+      return this.$store.state.config.logoWideBox
     },
     usingAuthentication() {
       return this.$store.getters.usingAuthentication;
