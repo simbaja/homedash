@@ -20,7 +20,8 @@ async function loadConfig () {
 const state = {
   sidebarShow: 'responsive',
   sidebarMinimize: false,
-  config: null
+  config: null,
+  router: null
 }
 
 const mutations = {
@@ -73,15 +74,23 @@ const getters = {
   usingAuthentication(state) {
     return state.config.keycloakAuthenticate ?? false;
   },
-  authenticationConfig(state) {
+  authenticationConfig(state, getters) {
     if(state.config == null || !state.config.keycloakAuthenticate)
       return null;
     
     return {
       realm: state.config.keycloakRealm,
       url: state.config.keycloakUrl,
-      clientId: state.config.keycloakClientId
+      clientId: state.config.keycloakClientId,
+      logoutRedirectUri: getters.signoutRedirectUrl
     }
+  },
+  signoutRedirectUrl(state) {
+    var internalUrl = window.location.origin;
+    if(state.router !== null)
+      internalUrl += "/" + state.router.resolve({ name: "PageSignedOut" }).href
+
+    return state.config.keycloakSignoutRedirectUrl ?? internalUrl
   }
 }
 

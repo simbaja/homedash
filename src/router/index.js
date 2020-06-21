@@ -15,12 +15,19 @@ const PageSignedOut = () => import('@/views/pages/PageSignedOut')
 
 Vue.use(Router)
 
-export default new Router({
+const router = new Router({
   mode: 'hash', // https://router.vuejs.org/api/#mode
   linkActiveClass: 'active',
   scrollBehavior: () => ({ y: 0 }),
   routes: configRoutes()
 })
+
+router.beforeEach((to, from, next) => {
+  checkAccessAndAuthenticate(to);
+  next();
+});
+
+export default router
 
 function configRoutes () {
   return [
@@ -54,20 +61,40 @@ function configRoutes () {
         {
           path: '404',
           name: 'Page404',
-          component: Page404
+          component: Page404,
+          meta: {
+            isPublic: true
+          }
         },
         {
           path: '500',
           name: 'Page500',
-          component: Page500
+          component: Page500,
+          meta: {
+            isPublic: true
+          }
         },
         {
           path: 'SignedOut',
           name: 'PageSignedOut',
-          component: PageSignedOut
+          component: PageSignedOut,
+          meta: {
+            isPublic: true
+          }
         }
       ]
     }
   ]
+}
+
+function checkAccessAndAuthenticate(to) {
+  if (to.matched.some(record => record.meta.isPublic))
+    return;
+  else if (router.app.$keycloak.authenticated)
+    return;
+  else {
+    const loginUrl = router.app.$keycloak.createLoginUrl()
+    window.location.replace(loginUrl)    
+  }
 }
 

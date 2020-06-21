@@ -49,7 +49,7 @@ export default {
       this.$keycloak.accountManagement();
     },
     logout: function() {
-      this.$keycloak.logoutFn({ redirectUri: 'https://google.com'})
+      this.$keycloak.logoutFn()
     }
   }
 }

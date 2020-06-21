@@ -33,6 +33,11 @@ function start() {
   else
   {
     Vue.use(VueKeyCloak, {
+      init: {
+        // Use 'login-required' to always require authentication
+        // If using 'login-required', there is no need for the router guards in router.js
+        onLoad: 'check-sso'
+      },      
       config: authConfig,
       onReady: kc => { // eslint-disable-line no-unused-vars
         startVue();
@@ -55,6 +60,10 @@ function startVue()
   });
 }
 
+//store the router so we have access to it in the store
+store.commit('set', ['router', Vue.observable(router)]);
+
+//get the config, then start the app
 store.dispatch('fetchConfig')
   .then((response) => { 
     start();
