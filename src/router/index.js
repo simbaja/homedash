@@ -90,11 +90,12 @@ function configRoutes () {
 function checkAccessAndAuthenticate(to) {
   if (to.matched.some(record => record.meta.isPublic))
     return;
-  else if (router.app.$keycloak.authenticated)
+  if (router.app.$keycloak === undefined)
     return;
-  else {
-    const loginUrl = router.app.$keycloak.createLoginUrl()
-    window.location.replace(loginUrl)    
-  }
+  if (router.app.$keycloak.authenticated)
+    return;
+  
+  const loginUrl = router.app.$keycloak.createLoginUrl()
+  window.location.replace(loginUrl)    
 }
 
