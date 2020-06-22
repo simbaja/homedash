@@ -13,6 +13,7 @@
   "copyright": "Copyright 2020 Jack Simbach",
   "license": "MIT",
   "scripts": {
+    "preinstall": "npm i -g @vue/cli @vue/cli-service-global",
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build --no-unsafe-inline",
     "lint": "vue-cli-service lint",
