@@ -5,7 +5,9 @@
         :class="linkClasses"
         v-bind="computedLinkProps"
       >
-        <CServiceIcon v-if="icon" :src="icon" additionalClasses="c-sidebar-nav-icon"/>
+        <div v-if="icon" class="c-sidebar-nav-icon">
+          <CServiceIcon v-if="icon" :src="icon" />
+        </div>
         {{name}}
         <CBadge
           v-if="badge"
