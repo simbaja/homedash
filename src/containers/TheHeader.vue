@@ -67,7 +67,6 @@ export default {
         });
       }
 
-      console.info(root);
       return root;
     },
     createNavItem: function(l) {

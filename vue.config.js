@@ -1,6 +1,7 @@
 module.exports = {
   lintOnSave: false,
   runtimeCompiler: true,
+  productionSourceMap: false,
   chainWebpack: (config) => {
     config.module
       .rule("yaml")
