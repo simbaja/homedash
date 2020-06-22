@@ -16,7 +16,6 @@ export default {
         },
         serviceUrl() {
             var service = this.findService();
-            console.info(service);
             if(service == null)
                 return this.$router.resolve({ name: "Page404" }).href;
             return service.url;
@@ -30,10 +29,10 @@ export default {
             if(this.services != null) {
                 for(var i=0;i< this.services.length; i++) {
                     var group = this.services[i];
+
                     if(group.items !== undefined) {
                         service = group.items.find(s => s.name === this.name);
-                        console.info(service);
-                        if(service !== null)
+                        if(service !== undefined)
                             return service;
                     }
                 }
