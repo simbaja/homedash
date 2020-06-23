@@ -11,14 +11,15 @@
       @click="$store.commit('toggleSidebarDesktop')"
     />
     <CHeaderBrand class="mx-auto d-lg-none" to="/">
-      <CIcon :use="logoWideSrc" :viewBox="logoWideBox" height="48" alt="Logo"/>
+      <CIcon :use="logoWideSrc" :viewBox="logoWideBox" height="35" alt="Logo"/>
     </CHeaderBrand>
     <CHeaderNav class="d-md-down-none mr-auto">
       <CRenderFunction flat :content-to-render="this.navItems"/>
     </CHeaderNav>
-    <CHeaderNav class="mr-4" v-if="usingAuthentication">
-      <TheHeaderDropdownAccnt/>
-    </CHeaderNav>
+    <CHeaderNav class="mr-4">
+      <TheHeaderDropdownAccnt v-if="usingAuthentication"/>
+      <span class="invisible" v-if="!usingAuthentication">hidden</span>
+    </CHeaderNav>    
   </CHeader>
 </template>
 
