@@ -23,8 +23,7 @@ const router = new Router({
 })
 
 router.beforeEach((to, from, next) => {
-  checkAccessAndAuthenticate(to);
-  next();
+  next(checkAccessAndAuthenticate(to));
 });
 
 export default router
@@ -89,13 +88,14 @@ function configRoutes () {
 
 function checkAccessAndAuthenticate(to) {
   if (to.matched.some(record => record.meta.isPublic))
-    return;
+    return true;
   if (router.app.$keycloak === undefined)
-    return;
+    return true;
   if (router.app.$keycloak.authenticated)
-    return;
+    return true;
   
   const loginUrl = router.app.$keycloak.createLoginUrl()
-  window.location.replace(loginUrl)    
+  window.location.replace(loginUrl)
+  return false;
 }
 

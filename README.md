@@ -67,6 +67,19 @@ npm run serve
 
 For information about the `config.yml` file see the [configuration](docs/configuration.md) documentation.
 
+Keycloak support is present, but only helps support SSO scenarios.  Since this application is essentially served client-side and doesn't access service-side resources (other than static files), it isn't really protecting anything.  However, if you have your SSO tied to the Keycloak login, it forces a login, and then allows you to:
+
+- Maintain the session through background refreshing as long as the dashboard is open
+- Opening other services will not cause a login window to appear (unless not tied to SSO)
+- Allows access to your profile information from the dashboard
+- Allows signoff of your session (useful if you're using forward auth)
+
+Any service that needs authentication/authorization should not rely on the dashboard to provide this functionality.
+
+#### Content Security Policy Issues
+
+When using Keycloak, it apparently does some unsafe-evals somewhere, so you'll need to make sure your policy allows that, otherwise nothing will display.
+
 ## Copyright and license
 
 Code released under [the MIT license](https://github.com/simbaja/homedash/blob/master/LICENSE).)
