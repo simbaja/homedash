@@ -2,6 +2,10 @@
   <router-view></router-view>
 </template>
 
+<style>
+  @import './../node_modules/@coreui/icons/css/all.css'
+</style>
+
 <script>
 import defaultConfig from "./assets/defaults.yml";
 

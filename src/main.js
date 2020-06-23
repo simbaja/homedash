@@ -7,9 +7,6 @@ import VueKeyCloak from '@dsb-norge/vue-keycloak-js'
 import { iconsSet as icons } from './assets/icons/icons.js'
 import store from './store'
 
-//change this import if you want to use other icon packs
-import "@coreui/icons/css/all.css";
-
 Vue.config.performance = true
 Vue.use(CoreuiVue)
 Vue.prototype.$log = console.log.bind(console)
